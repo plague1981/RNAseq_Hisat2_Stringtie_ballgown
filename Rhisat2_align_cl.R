@@ -46,7 +46,8 @@ require(dplyr)
 require(Rsamtools)
 
 for (n in 1:length(fastqgz_files)){
-  gunzip(fastqgz_files[n] ) %>% hisat2(sequences =  , index='hg', type="single", outfile=file.path(dir, paste0(fastqgz_files[n],".sam")), force = TRUE) %>% asBam(file =  , destination =sub(".sam", ".bam",x =  ))
-  
+  gunzip(fastqgz_files[n] ) %>% hisat2(sequences =  , index='hg', type="single", outfile=file.path(dir, paste0(fastqgz_files[n],".sam")), force = TRUE)
+  gzip(sub('fastq.gz','fastq',fastqgz_files[n]))
+  asBam(file =  , destination =sub(".sam", ".bam",x =  ))  
   file.remove(paste0(fastqgz_files[1],".sam"))
 }
