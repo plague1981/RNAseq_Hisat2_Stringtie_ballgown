@@ -15,4 +15,5 @@ Hisat2,Stringtie and ballgown pipelines
 # Command lines for linux OS
 1. build the index <br/>
 \> hisat2-build ref.fa index <br/>
-index is the basename of index files. This command line will generate 8 index files with suffix name *.ht2
+index is the basename of index files. This command line will generate 8 index files with suffix '.ht2'
+# Command lines for windows with R scripts
