@@ -17,3 +17,4 @@ Hisat2,Stringtie and ballgown pipelines
 \> hisat2-build ref.fa index <br/>
 index is the basename of index files. This command line will generate 8 index files with suffix '.ht2'
 # Command lines for windows with R scripts
+\> Rscript Rhisat2_align_cl.R -i <index> -t <type>
