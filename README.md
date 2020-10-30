@@ -17,4 +17,7 @@ Hisat2,Stringtie and ballgown pipelines
 \> hisat2-build ref.fa index <br/>
 index is the basename of index files. This command line will generate 8 index files with suffix '.ht2'
 # Command lines for windows with R scripts
+You only can run 'Rhisat2' and 'ballgown' in windows OS system. 'Stringtie' and 'gffcompare' only can be installed in MacOS or Linux OS.
+\> Rscript Rhisat2_index_cl.R -ref <genome>.fa -i <basename of index> -od <output directory> <br/>
+   This script will build up <index>.ht2 (8 index files)
 \> Rscript Rhisat2_align_cl.R -i <index> -t <type>
