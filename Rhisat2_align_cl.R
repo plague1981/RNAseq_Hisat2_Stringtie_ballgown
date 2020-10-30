@@ -36,14 +36,13 @@ if (dir.exists(dirPath)){
   quit()
 }
 # ==== obtain read.fastq.gz files ====
-library(R.utils)
 fastqgz_files <- list.files(dirPath,pattern = "fastq.gz$")
 
 # ==== align function  =====
 library(Rhisat2)
 require(dplyr)
 require(Rsamtools)
-
+require(R.utils)
 for (n in 1:length(fastqgz_files)){
   cat(paste0('Processing ',fastqgz_files[n],'...'))
   gunzip(fastqgz_files[n] ) %>% hisat2(sequences =  , index= i, type= t, outfile=file.path(dir, paste0(fastqgz_files[n],".sam")), force = TRUE)
@@ -52,7 +51,7 @@ for (n in 1:length(fastqgz_files)){
   gzip(sub('fastq.gz','fastq',fastqgz_files[n]))
   cat('Done!\n')
   cat(paste0('Converting ', paste0(fastqgz_files[n],".sam"), ' to ',paste0(fastqgz_files[n],".bam...")))
-  asBam(file =paste0(fastqgz_files[n],".sam"), destination =paste0(fastqgz_files[n],".bam"))
+  asBam(file =paste0(fastqgz_files[n],".sam"), destination =sub('fastq.gz','',fastqgz_files[n]))
   cat('Done!\n')
   file.remove(paste0(fastqgz_files[n],".sam"))
 }
