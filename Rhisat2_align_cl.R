@@ -1,7 +1,11 @@
 # ======== Packages required =========
 options(java.parameters = c("-XX:+UseConcMarkSweepGC", "-Xmx16384m"))
 # Rcran
-packages<-c('Xmisc','dplyr','R.utils')
+#$ sudo apt-get install libssl-dev (for installing 'openssl' package)
+#$ sudo apt-get install libcurl4-gnutls-dev
+#$ sudo apt-get install libxml2-dev
+
+packages<-c('Xmisc','dplyr','R.utils','RCurl', 'openssl','XML')
 for (package in packages){
   if(package %in% rownames(installed.packages()) == FALSE) {
     install.packages(package)}
